@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{%load static %}
+
+{% block title %}
+    Blog detail | Blog detay
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+                <div class="card mb-3" >
+                    <div class="row g-0">
+                      <div class="col-md-12">
+                        <div class="card-body ">
+                          <h1 class="card-title mb-3">{{ blog.title|title }}</h1>
+                          <img src="{{ blog.image.url }}" class="img-fluid rounded-start " 
+                          width="50%" alt="..." style="float: left; margin-right: 20px;">
+                          <p class="card-text">{{ blog.description|safe }}</p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+

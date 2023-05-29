@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'main/css/style.css'%}">
+{% endblock css_files %}
+
+{% block title %}
+    Minilog
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-3">
+                
+                {% include 'partial/_categories.html' %}
+            </div>
+            <div class="col-9">
+                {% for blog in blogs %}
+                    {% if blog.is_home and blog.is_active %}
+                        {% include 'main/partial/_blog.html' %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
