@@ -24,11 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 SECRET_KEY = getenv("SECRET_KEY")
+SECRET_KEY = 'aasdadawdawdawdqawd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = getenv("IS_DEVELOPMENT",default=True)
 
 ALLOWED_HOSTS = [
-    getenv("APP_HOST"),
+    getenv("APP_HOST"),'*'
 ]
 
 
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -125,6 +127,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR /'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT = BASE_DIR/'uploads'
